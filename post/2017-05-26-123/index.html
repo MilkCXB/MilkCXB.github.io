@@ -81,7 +81,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="vue-router," />
 
 
 
@@ -94,14 +94,15 @@
 
 
 
-<meta name="description" content="这里是博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http:&#x2F;&#x2F;milkblog.com&#x2F;tags&#x2F;index.html">
+<meta name="description" content="router里会存在哪些钩子函数呢？">
+<meta name="keywords" content="vue-router">
+<meta property="og:type" content="article">
+<meta property="og:title" content="router里的钩子函数">
+<meta property="og:url" content="http:&#x2F;&#x2F;milkblog.com&#x2F;post&#x2F;2017-05-26-123&#x2F;index.html">
 <meta property="og:site_name" content="MilkBlog">
-<meta property="og:description" content="这里是博客">
+<meta property="og:description" content="router里会存在哪些钩子函数呢？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-08T10:00:12.087Z">
+<meta property="og:updated_time" content="2019-12-09T14:52:59.690Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -132,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://milkblog.com/tags/"/>
+  <link rel="canonical" href="http://milkblog.com/post/2017-05-26-123/"/>
 
 
 
 
 
-  <title>tags | MilkBlog</title>
+  <title>router里的钩子函数 | MilkBlog</title>
   
 
 
@@ -323,40 +324,180 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://milkblog.com/post/2017-05-26-123/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MilkCXB">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/milk.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MilkBlog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 4 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/vue-router/" style="font-size: 12px; color: #ccc">vue-router</a> <a href="/tags/vuex/" style="font-size: 12px; color: #ccc">vuex</a> <a href="/tags/web%E5%89%8D%E7%AB%AF/" style="font-size: 12px; color: #ccc">web前端</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%BF%83%E6%83%85/" style="font-size: 12px; color: #ccc">个人心情</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">router里的钩子函数</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-26T12:12:57+08:00">
+                2017-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>router里会存在哪些钩子函数呢？</p>
+<a id="more"></a> 
+
+<p>##router里会存在哪些钩子函数呢？</p>
+<h3 id="Vue-beforeEach-function-to-form-next-在跳转之前执行"><a href="#Vue-beforeEach-function-to-form-next-在跳转之前执行" class="headerlink" title="Vue.beforeEach(function(to,form,next){}) /在跳转之前执行/"></a>Vue.beforeEach(function(to,form,next){}) /<em>在跳转之前执行</em>/</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">router.beforeEach((to, from, next) &#x3D;&gt; &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    let token &#x3D; router.app.$storage.fetch(&quot;token&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    let needAuth &#x3D; to.matched.some(item &#x3D;&gt; item.meta.login);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    if(!token &amp;&amp; needAuth) return next(&#123;path: &quot;&#x2F;login&quot;&#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    next();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr></table></figure>
+
+<p>beforeEach函数有三个参数：<br>####to:router即将进入的路由对象</p>
+<p>####from:当前导航即将离开的路由</p>
+<p>####next:Function,进行管道中的一个钩子，如果执行完了，则导航的状态就是 confirmed （确认的）；否则为false，终止导航。</p>
+<p>####afterEach函数不用传next()函数</p>
+<h3 id="Vue-afterEach-function-to-form-在跳转之后判断"><a href="#Vue-afterEach-function-to-form-在跳转之后判断" class="headerlink" title="Vue.afterEach(function(to,form))/在跳转之后判断/"></a>Vue.afterEach(function(to,form))/<em>在跳转之后判断</em>/</h3><p>比bforeEach少个next函数</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue-router/" rel="tag"># vue-router</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/2017-05-26-hello-world/" rel="next" title="j12321412">
+                <i class="fa fa-chevron-left"></i> j12321412
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/2019-12-09-wo/" rel="prev" title="欢迎各位来到我的博客">
+                欢迎各位来到我的博客 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -389,8 +530,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -497,6 +647,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-beforeEach-function-to-form-next-在跳转之前执行"><span class="nav-number">1.</span> <span class="nav-text">Vue.beforeEach(function(to,form,next){}) /在跳转之前执行/</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-afterEach-function-to-form-在跳转之后判断"><span class="nav-number">2.</span> <span class="nav-text">Vue.afterEach(function(to,form))/在跳转之后判断/</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
