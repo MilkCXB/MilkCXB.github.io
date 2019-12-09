@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="MilkBlog">
 <meta property="og:description" content="router里会存在哪些钩子函数呢？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-09T14:52:59.690Z">
+<meta property="og:updated_time" content="2019-12-09T15:07:11.706Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -428,14 +428,10 @@
         <p>router里会存在哪些钩子函数呢？</p>
 <a id="more"></a> 
 
-<p>##router里会存在哪些钩子函数呢？</p>
-<h3 id="Vue-beforeEach-function-to-form-next-在跳转之前执行"><a href="#Vue-beforeEach-function-to-form-next-在跳转之前执行" class="headerlink" title="Vue.beforeEach(function(to,form,next){}) /在跳转之前执行/"></a>Vue.beforeEach(function(to,form,next){}) /<em>在跳转之前执行</em>/</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">router.beforeEach((to, from, next) &#x3D;&gt; &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    let token &#x3D; router.app.$storage.fetch(&quot;token&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    let needAuth &#x3D; to.matched.some(item &#x3D;&gt; item.meta.login);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    if(!token &amp;&amp; needAuth) return next(&#123;path: &quot;&#x2F;login&quot;&#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    next();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr></table></figure>
+<h2 id="router里会存在哪些钩子函数呢？"><a href="#router里会存在哪些钩子函数呢？" class="headerlink" title="router里会存在哪些钩子函数呢？"></a>router里会存在哪些钩子函数呢？</h2><h3 id="Vue-beforeEach-function-to-form-next-在跳转之前执行"><a href="#Vue-beforeEach-function-to-form-next-在跳转之前执行" class="headerlink" title="Vue.beforeEach(function(to,form,next){}) /在跳转之前执行/"></a>Vue.beforeEach(function(to,form,next){}) /<em>在跳转之前执行</em>/</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">router.beforeEach((to, from, next) &#x3D;&gt; &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    let token &#x3D; router.app.$storage.fetch(&quot;token&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    let needAuth &#x3D; to.matched.some(item &#x3D;&gt; item.meta.login);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    if(!token &amp;&amp; needAuth) return next(&#123;path: &quot;&#x2F;login&quot;&#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    next();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr></table></figure>
 
-<p>beforeEach函数有三个参数：<br>####to:router即将进入的路由对象</p>
-<p>####from:当前导航即将离开的路由</p>
-<p>####next:Function,进行管道中的一个钩子，如果执行完了，则导航的状态就是 confirmed （确认的）；否则为false，终止导航。</p>
-<p>####afterEach函数不用传next()函数</p>
-<h3 id="Vue-afterEach-function-to-form-在跳转之后判断"><a href="#Vue-afterEach-function-to-form-在跳转之后判断" class="headerlink" title="Vue.afterEach(function(to,form))/在跳转之后判断/"></a>Vue.afterEach(function(to,form))/<em>在跳转之后判断</em>/</h3><p>比bforeEach少个next函数</p>
+<p>beforeEach函数有三个参数：</p>
+<h4 id="to-router即将进入的路由对象"><a href="#to-router即将进入的路由对象" class="headerlink" title="to:router即将进入的路由对象"></a>to:router即将进入的路由对象</h4><h4 id="from-当前导航即将离开的路由"><a href="#from-当前导航即将离开的路由" class="headerlink" title="from:当前导航即将离开的路由"></a>from:当前导航即将离开的路由</h4><h4 id="next-Function-进行管道中的一个钩子，如果执行完了，则导航的状态就是-confirmed-（确认的）；否则为false，终止导航。"><a href="#next-Function-进行管道中的一个钩子，如果执行完了，则导航的状态就是-confirmed-（确认的）；否则为false，终止导航。" class="headerlink" title="next:Function,进行管道中的一个钩子，如果执行完了，则导航的状态就是 confirmed （确认的）；否则为false，终止导航。"></a>next:Function,进行管道中的一个钩子，如果执行完了，则导航的状态就是 confirmed （确认的）；否则为false，终止导航。</h4><h4 id="afterEach函数不用传next-函数"><a href="#afterEach函数不用传next-函数" class="headerlink" title="afterEach函数不用传next()函数"></a>afterEach函数不用传next()函数</h4><h3 id="Vue-afterEach-function-to-form-在跳转之后判断"><a href="#Vue-afterEach-function-to-form-在跳转之后判断" class="headerlink" title="Vue.afterEach(function(to,form))/在跳转之后判断/"></a>Vue.afterEach(function(to,form))/<em>在跳转之后判断</em>/</h3><p>比bforeEach少个next函数</p>
 
       
     </div>
@@ -657,7 +653,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-beforeEach-function-to-form-next-在跳转之前执行"><span class="nav-number">1.</span> <span class="nav-text">Vue.beforeEach(function(to,form,next){}) /在跳转之前执行/</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-afterEach-function-to-form-在跳转之后判断"><span class="nav-number">2.</span> <span class="nav-text">Vue.afterEach(function(to,form))/在跳转之后判断/</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#router里会存在哪些钩子函数呢？"><span class="nav-number">1.</span> <span class="nav-text">router里会存在哪些钩子函数呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-beforeEach-function-to-form-next-在跳转之前执行"><span class="nav-number">1.1.</span> <span class="nav-text">Vue.beforeEach(function(to,form,next){}) /在跳转之前执行/</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#to-router即将进入的路由对象"><span class="nav-number">1.1.1.</span> <span class="nav-text">to:router即将进入的路由对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#from-当前导航即将离开的路由"><span class="nav-number">1.1.2.</span> <span class="nav-text">from:当前导航即将离开的路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#next-Function-进行管道中的一个钩子，如果执行完了，则导航的状态就是-confirmed-（确认的）；否则为false，终止导航。"><span class="nav-number">1.1.3.</span> <span class="nav-text">next:Function,进行管道中的一个钩子，如果执行完了，则导航的状态就是 confirmed （确认的）；否则为false，终止导航。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#afterEach函数不用传next-函数"><span class="nav-number">1.1.4.</span> <span class="nav-text">afterEach函数不用传next()函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-afterEach-function-to-form-在跳转之后判断"><span class="nav-number">1.2.</span> <span class="nav-text">Vue.afterEach(function(to,form))/在跳转之后判断/</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -692,7 +688,7 @@
 </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共413字</span>
+  <span class="post-count">博客全站共412字</span>
 </div>
  <!--
 
