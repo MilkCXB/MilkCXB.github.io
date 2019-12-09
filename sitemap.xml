@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://milkblog.com/post/2017-05-26-123/</loc>
+    
+    <lastmod>2019-12-09T04:42:35.684Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://milkblog.com/post/2017-05-26-hello-world/</loc>
     
     <lastmod>2019-12-08T11:11:11.241Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://milkblog.com/post/2019-12-08-53213/</loc>
     
     <lastmod>2019-12-08T11:10:22.627Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://milkblog.com/post/2017-05-26-123/</loc>
-    
-    <lastmod>2019-12-08T11:09:34.976Z</lastmod>
     
   </url>
   
